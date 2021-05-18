@@ -1,4 +1,14 @@
 <?php
+function reverse($num) //function to get the reverse of a number
+{
+    $reverse = 0; 
+    while($num > 1){ //iterate till number is greater than 1
+       $last = $num % 10; //single out the last digit
+       $reverse = ($reverse * 10) + $last; //put it in the number
+       $num = (int)$num/10; 
+       }
+     return $reverse; //get the reversed number
+}
  $allnumbers = array(); //array to hold all three digit numbers
  $products = array(); //array to whole all products of 3 digit numbers
  $palindromes= array(); // array to whole all palindromes 
@@ -14,17 +24,6 @@
          $k = $allnumbers[$o] * $allnumbers[$j]; //find out all products
          array_push($products, $k); //put them in the array
      }
- }
-
- function reverse($num) //function to get the reverse of a number
- {
-     $reverse = 0; 
-     while($num > 1){ //iterate till number is greater than 1
-        $last = $num % 10; //single out the last digit
-        $reverse = ($reverse * 10) + $last; //put it in the number
-        $num = (int)$num/10; 
-        }
-      return $reverse; //get the reversed number
  }   
  for($l = 0; $l < sizeof($products); $l++){
      if($products[$l] == reverse(($products[$l]))){ //check if the product is a palindrome
