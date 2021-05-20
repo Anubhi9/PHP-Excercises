@@ -1,7 +1,8 @@
-<?php
+<?php  
+    $start = microtime(true);
 for($a = 1; $a < 500; $a++){
     for($b = 1; $b < 500; $b++){
-        for($c = 1; $c < 500; $c++){
+        for($c = (1000 - ($a + $b)); $c < ($a + $b); $c++){
             if(pow($a,2) + pow($b,2) == pow($c,2)){ //check sum of squares of first two numbers
                 if($a + $b + $c == 1000){ //check sum of all 3
                     echo $a*$b*$c; 
@@ -11,5 +12,7 @@ for($a = 1; $a < 500; $a++){
         }
     }
 }
+$time_elapsed_secs = microtime(true) - $start;
+echo $time_elapsed_secs;
 
 ?>
